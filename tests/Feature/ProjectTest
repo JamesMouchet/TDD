@@ -1,0 +1,23 @@
+<?php
+
+namespace Tests\Unit;
+
+use App\DonationFee;
+
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Exception;
+
+/**
+ * Class DonationFeeTest
+ * @package Tests\Unit
+ */
+class ProjectTest extends TestCase {
+    public function testBasicTest()
+    {
+        $response = $this->get('/projet');
+
+        $response->assertStatus(200);
+    }
+}
