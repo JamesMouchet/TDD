@@ -16,6 +16,7 @@ class DonationFee
 
     private $donation;
     private $commissionPercentage;
+    private const fixedFee = 50;
 
     /**
      * DonationFee constructor.
@@ -46,5 +47,12 @@ class DonationFee
     {
         $amountCollected = $this->donation - $this->getCommissionAmount();
         return $amountCollected;
+    }
+
+    public function getFixedAndCommissionFeeAmount()
+    {
+        $FixedAndCommissionFeeAmount = $this->getCommissionAmount() + self::fixedFee;
+        return $FixedAndCommissionFeeAmount;
+
     }
 }
