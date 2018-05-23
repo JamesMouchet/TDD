@@ -9,6 +9,10 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Exception;
 
+/**
+ * Class DonationFeeTest
+ * @package Tests\Unit
+ */
 class DonationFeeTest extends TestCase
 {
     /**
@@ -53,6 +57,16 @@ class DonationFeeTest extends TestCase
         $donationFees = new DonationFee(150, 24);
         $actual = $donationFees->getFixedAndCommissionFeeAmount();
         $excepted = 150*24/100 + 50;
+        $this->assertEquals($excepted, $actual);
+    }
+    /**
+     * @throws Exception
+     */
+    public function testFixedAndCommissionFeeAmountWith500()
+    {
+        $donationFees = new DonationFee(5000, 9);
+        $actual = $donationFees->getFixedAndCommissionFeeAmount();
+        $excepted = 500;
         $this->assertEquals($excepted, $actual);
     }
 
