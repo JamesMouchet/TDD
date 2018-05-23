@@ -17,7 +17,12 @@ class ProjectTest extends TestCase {
     public function testBasicTest()
     {
         $response = $this->get('/projet');
-
         $response->assertStatus(200);
+    }
+
+    public function testText()
+    {
+        $response = $this->get('/projet');
+        $response->assertSee("<h1>Listes des projets</h1>");
     }
 }
