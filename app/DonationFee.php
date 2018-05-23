@@ -30,6 +30,9 @@ class DonationFee
         if ($this->commissionPercentage > 30 || $this->commissionPercentage < 0) {
             throw new Exception('Le pourcentage de commission doit être entre 0 et 30%');
         }
+        if ($this->donation < 100 || is_float($this->donation)) {
+            throw new Exception('Le montant de la donation doit être supérieur à 1 euro et le chiffre doit être entier');
+        }
     }
 
     public function getCommissionAmount()
