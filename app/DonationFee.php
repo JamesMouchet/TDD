@@ -60,4 +60,15 @@ class DonationFee
 
 
     }
+    public function getSummary()
+    {
+        $getSummary = array(
+             $this->donation,
+            self::fixedFee,
+            $this->commissionPercentage,
+            $this->getFixedAndCommissionFeeAmount(),
+            $this->getAmountCollected()
+        );
+        return $getSummary;
+    }
 }

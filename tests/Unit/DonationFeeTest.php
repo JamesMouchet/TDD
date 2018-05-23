@@ -69,5 +69,15 @@ class DonationFeeTest extends TestCase
         $excepted = 500;
         $this->assertEquals($excepted, $actual);
     }
+    /**
+     * @throws Exception
+     */
+    public function testGetSummary()
+    {
+        $donationsFees = new DonationFee(500, 10);
+        $actual = $donationsFees->getSummary();
+        $excepted = array(500, 50, 10, 100, 450);
+        $this->assertEquals($excepted, $actual);
+    }
 
 }
