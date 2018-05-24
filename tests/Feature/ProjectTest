@@ -25,4 +25,10 @@ class ProjectTest extends TestCase {
         $response = $this->get('/projet');
         $response->assertSee("<h1>Listes des projets</h1>");
     }
+
+    public function testTitle()
+    {
+        $response = $this->get('/projet');
+        $response->assertSee('<p>Vel aliquam mollitia ratione voluptatum nulla omnis.</p>');
+    }
 }
